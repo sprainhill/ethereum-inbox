@@ -21,14 +21,21 @@ class Car {
     }
 }
 
+let c1
+
+beforeEach(() => {
+    console.log("beforeEach")
+    c1 = new Car()
+})
+
 describe('Car class', () => {
     it('car stops', () => {
-        const c1 = new Car()
+        console.log("stops")
         assert.equal(c1.park(), 'stopped');
     })
 
     it('car drives', () => {
-        const c1 = new Car()
+        console.log("drives")
         assert.equal(c1.drive(), 'vroom');
     })
 })
