@@ -10,32 +10,25 @@ const Web3 = require('web3')
 
 const web3 = new Web3(ganache.provider());
 
-
-class Car {
-    park() {
-        return 'stopped';
-    }
-
-    drive() {
-        return 'vroom';
-    }
-}
-
-let c1
-
 beforeEach(() => {
-    console.log("beforeEach")
-    c1 = new Car()
-})
-
-describe('Car class', () => {
-    it('car stops', () => {
-        console.log("stops")
-        assert.equal(c1.park(), 'stopped');
+    // get list of all accounts
+    // web3 calls are asynchronous
+    web3.eth.getAccounts()
+    .then(res => {
+        console.log("beforeEach res : ", res)
+    })
+    .catch(err => {
+        console.log("error fetching accounts")
     })
 
-    it('car drives', () => {
-        console.log("drives")
-        assert.equal(c1.drive(), 'vroom');
-    })
-})
+    // use one of those accounts
+    // to deploy the contract
+
+});
+
+describe('Inbox', () => {
+    it('deploys a contract', () => {
+        console.log("working")
+
+    });
+});
