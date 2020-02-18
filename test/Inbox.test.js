@@ -40,7 +40,12 @@ describe('Inbox', () => {
         assert.equal(message, 'Hello world.')
     });
 
+    it('can set new message', async () => {
+        await inbox.methods.setMessage('Hello test').send({ from: accounts[0] })
 
+        const message = await inbox.methods.message().call();
 
+        assert.equal(message, 'Hello test')
+    });
 
 });
